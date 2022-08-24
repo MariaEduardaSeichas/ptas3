@@ -19,8 +19,19 @@ app.get('/autenticar', async function (req, res){
     res.render("autenticar")
 });
 
+app.get('/inscrever', async function (req, res){
+  res.render("inscrever")
+});
+
 app.post('/logar', async function (req, res){
-    
+  var usuario = req.body.usuario;
+  var senha = req.body.senha;
+
+  if (usuario == "maria" && senha == 123){
+    res.send("Autenticado ")
+  } else {
+    res.send("Não autenticado")
+  }
 });
 
 app.post('/deslogar', async function (req, res){
