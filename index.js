@@ -1,4 +1,8 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
+const {expressjwt:expressJWT} = require('express-jwt');
+const cors = require('cors');
+const cookieParse = require('cookie-parse');
 //const { usuario } = require('./models');
 
 const app = express();
@@ -7,6 +11,8 @@ app.set('view engine','ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('public'));
+app.use(cors());
+app.use(cookieParse());
 
 app.get('/', async function(req, res){
     var resultado = "teste"
